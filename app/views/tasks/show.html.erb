@@ -1,0 +1,14 @@
+<h1> <%= @tasks.title %> </h1>
+
+<h2> <%= @tasks.details %></h2>
+
+<ul style="list-style-type:none">
+  <% if @tasks.completed == true %>
+      <li > <input type="checkbox" id="scales" name="scales" checked> This task is completed yet </li>
+    <% else %>
+      <li> <input type="checkbox" id="scales" name="scales" unchecked> This task is not completed yet </li>
+  <% end %>
+</ul>
+
+
+
