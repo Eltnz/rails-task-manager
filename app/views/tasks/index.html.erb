@@ -3,13 +3,31 @@
 <ul style="list-style-type:none">
   <% @tasks.each do |task| %>
     <% if task.completed == true %>
-        <li > <input type="checkbox" id="scales" name="scales" checked> <%= link_to task.title, task_path(task.id) %> </li>
+        <li >
+          <input type="checkbox" id="scales" name="scales" checked>
+          <%= link_to task.title, task_path(task.id) %>
+          <%= link_to task_path(task.id),
+          method: :delete,
+          data: { confirm: "Are you sure?" } do %>
+            <button type="button" class="btn btn-info">Delete
+            </button>
+          <% end %>
+        </li>
       <% else %>
-        <li> <input type="checkbox" id="scales" name="scales" unchecked> <%= link_to task.title, task_path(task.id) %> </li>
+        <li>
+          <input type="checkbox" id="scales" name="scales" unchecked>
+          <%= link_to task.title, task_path(task.id) %>
+          <%= link_to task_path(task.id),
+          method: :delete,
+          data: { confirm: "Are you sure?" } do %>
+            <button type="button" class="btn btn-info">Delete
+            </button>
+          <% end %>
+      </li>
       <% end %>
   <% end %>
 </ul>
 
-
+<%= link_to "Add a new task", tasks_new_path %>
 
 
